@@ -1,0 +1,21 @@
+﻿<!--
+***********************************************************************************************
+Doc.Net Custom build steps.
+
+https://github.com/orgs/DocDotNet/
+
+Copyright (C) Doc.Net Group. All rights reserved.
+***********************************************************************************************
+-->
+
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+    </PropertyGroup>
+
+  <Target Name="BuildNuget" AfterTargets="Build">
+    <!--
+    <Exec WorkingDirectory="$(MSBuildThisFileDirectory)"
+              Command="$(MSBuildThisFileDirectory)nuget.exe pack $(MSBuildThisFileDirectory)Doc.Net.Framework.nuspec" />
+     -->
+  </Target>
+</Project>

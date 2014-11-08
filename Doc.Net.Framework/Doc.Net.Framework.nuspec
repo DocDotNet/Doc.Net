@@ -1,0 +1,18 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>Doc.Net Group</authors>
+    <owners>Serivy Sigh71</owners>
+    <licenseUrl>https://github.com/DocDotNet</licenseUrl>
+    <projectUrl>https://github.com/DocDotNet</projectUrl>
+    <iconUrl>https://avatars2.githubusercontent.com/u/9401010</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A framework for building .net documentation.</description>
+    <releaseNotes>Inital release of the Doc.Net.</releaseNotes>
+    <copyright>Copyright 2014</copyright>
+    <tags>Documentation</tags>
+  </metadata>
+</package>
