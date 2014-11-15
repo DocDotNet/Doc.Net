@@ -21,7 +21,7 @@ namespace Dot.Net.Tests
         public void CompileFramework()
         {
             var frameworkProject = Path.Combine(rootFolder, @"Doc.Net.Framework\Doc.Net.Framework.csproj");
-
+            
             var comp = new Compiler();
             comp.LoadProject(frameworkProject);
         }
@@ -29,7 +29,6 @@ namespace Dot.Net.Tests
         public void CompileExample()
         {
             var frameworkProject = Path.Combine(rootFolder, @"Dot.Net.Tests\Example\Example.csproj");
-
             var comp = new Compiler();
             comp.LoadProject(frameworkProject);
         }

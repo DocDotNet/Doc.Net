@@ -1,23 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
+using Doc.Net.Framework.Configuration;
 using Microsoft.Build.Evaluation;
 
 namespace Doc.Net.Framework
 {
     public class Compiler
     {
+        private DocConfiguration _config;
+
         public Compiler()
         {
-            
         }
 
         public void LoadProject(string projectLocation)
         {
             var project = new Project(projectLocation);
-            var items = project.Items.Where(o => o.ItemType == "Content");
+            _config = new DocConfiguration(project);
         }
     }
 }

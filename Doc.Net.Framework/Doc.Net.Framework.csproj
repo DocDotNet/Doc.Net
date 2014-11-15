@@ -31,6 +31,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Build" />
+    <Reference Include="Microsoft.Framework.ConfigurationModel">
+      <HintPath>..\packages\Microsoft.Framework.ConfigurationModel.1.0.0-beta1\lib\net45\Microsoft.Framework.ConfigurationModel.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,21 +44,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Compiler.cs" />
+    <Compile Include="Configuration\DocConfiguration.cs" />
     <Compile Include="Harvest\IHarvester.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Write\IWriter.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Build\Doc.Net.targets" />
+    <None Include="Build\Doc.Net.targets">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Build\default.json" />
     <None Include="Doc.Net.Framework.nuspec">
       <SubType>Designer</SubType>
     </None>
-    <Fakes Include="Documentation\index.md" />
+    <None Include="Documentation\index.md" />
+    <DocNetConfiguration Include="Documentation\docconf.ini" />
+    <None Include="Documentation\doconf.json" />
     <None Include="Documentation\MarkDownExample.md" />
+    <None Include="packages.config" />
     <None Include="project.targets">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildThisFileDirectory)project.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

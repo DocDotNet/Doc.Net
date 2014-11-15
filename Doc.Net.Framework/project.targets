@@ -11,7 +11,8 @@ Copyright (C) Doc.Net Group. All rights reserved.
     </PropertyGroup>
 
   <ItemGroup>
-    <AvailableItemName Include="Doc.Net" />
+    <AvailableItemName Include="DocNet" />
+    <AvailableItemName Include="DocNetConfiguration" />
   </ItemGroup>
 
   <Target Name="BuildNuget" AfterTargets="Build">

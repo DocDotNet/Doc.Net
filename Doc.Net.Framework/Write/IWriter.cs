@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Doc.Net.Framework.Writer
+namespace Doc.Net.Framework.Write
 {
-    public class IWriter
+    public interface IWriter
     {
     }
 }

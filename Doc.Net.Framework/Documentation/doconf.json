@@ -1,0 +1,13 @@
+﻿// Doc.Net Configuration file. Internal file only do not use as a reference. See Build\Default.json.
+
+{
+    "harvesters": [
+
+    ],
+    "writers":  [
+        {
+            "Mode": "dsds"
+
+        }
+    ]
+}
