@@ -16,10 +16,8 @@ namespace Doc.Net.Framework
 
         public void LoadProject(string projectLocation)
         {
-            var project = new Project();
-            project.Load(projectLocation);
+            var project = new Project(projectLocation);
             var items = project.Items.Where(o => o.ItemType == "Content");
         }
-
     }
 }

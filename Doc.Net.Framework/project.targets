@@ -1,9 +1,7 @@
 ﻿<!--
 ***********************************************************************************************
 Doc.Net Custom build steps.
-
-https://github.com/orgs/DocDotNet/
-
+https://github.com/DocDotNet
 Copyright (C) Doc.Net Group. All rights reserved.
 ***********************************************************************************************
 -->
@@ -11,6 +9,10 @@ Copyright (C) Doc.Net Group. All rights reserved.
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
     </PropertyGroup>
+
+  <ItemGroup>
+    <AvailableItemName Include="Doc.Net" />
+  </ItemGroup>
 
   <Target Name="BuildNuget" AfterTargets="Build">
     <!--
