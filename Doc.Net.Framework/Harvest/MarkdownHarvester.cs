@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Doc.Net.Framework.Harvest
 {
-    public interface IHarvester
+    public class MarkdownHarvester : IHarvester
     {
     }
 }

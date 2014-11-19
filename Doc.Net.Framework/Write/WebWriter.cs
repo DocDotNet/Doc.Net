@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Doc.Net.Framework.Harvest
+namespace Doc.Net.Framework.Write
 {
-    public interface IHarvester
+    public class ChmWriter : IWriter
     {
     }
 }

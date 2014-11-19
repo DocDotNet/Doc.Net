@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MarkdownSharp">
+      <HintPath>..\packages\MarkdownSharp.1.13.0.0\lib\35\MarkdownSharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Build" />
     <Reference Include="Microsoft.Framework.ConfigurationModel">
       <HintPath>..\packages\Microsoft.Framework.ConfigurationModel.1.0.0-beta1\lib\net45\Microsoft.Framework.ConfigurationModel.dll</HintPath>
@@ -46,21 +49,24 @@
     <Compile Include="Compiler.cs" />
     <Compile Include="Configuration\DocConfiguration.cs" />
     <Compile Include="Harvest\IHarvester.cs" />
+    <Compile Include="Harvest\MarkdownHarvester.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Write\IWriter.cs" />
+    <Compile Include="Write\ChmWriter.cs" />
+    <Compile Include="Write\WebWriter.cs" />
+    <Compile Include="Write\TextWriter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Build\Doc.Net.targets">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Build\default.json" />
     <None Include="Doc.Net.Framework.nuspec">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Documentation\index.md" />
+    <DocNet Include="Documentation\index.md" />
     <DocNetConfiguration Include="Documentation\docconf.ini" />
     <None Include="Documentation\doconf.json" />
-    <None Include="Documentation\MarkDownExample.md" />
+    <DocNet Include="Documentation\MarkDownExample.md" />
     <None Include="packages.config" />
     <None Include="project.targets">
       <SubType>Designer</SubType>

@@ -23,14 +23,14 @@ namespace Dot.Net.Tests
             var frameworkProject = Path.Combine(rootFolder, @"Doc.Net.Framework\Doc.Net.Framework.csproj");
             
             var comp = new Compiler();
-            comp.LoadProject(frameworkProject);
+            comp.Compile(frameworkProject);
         }
 
         public void CompileExample()
         {
-            var frameworkProject = Path.Combine(rootFolder, @"Dot.Net.Tests\Example\Example.csproj");
+            var exampleProject = Path.Combine(rootFolder, @"Dot.Net.Tests\Example\Example.csproj");
             var comp = new Compiler();
-            comp.LoadProject(frameworkProject);
+            comp.Compile(exampleProject);
         }
     }
 }

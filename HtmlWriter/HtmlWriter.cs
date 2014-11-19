@@ -1,4 +1,4 @@
-﻿using Doc.Net.Framework.Writer;
+﻿using Doc.Net.Framework.Write;
 
 namespace HtmlWriter
 {
