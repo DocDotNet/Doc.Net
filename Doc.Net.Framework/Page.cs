@@ -10,6 +10,25 @@ namespace Doc.Net.Framework
     {
         public string Id { get; set; }
 
+        public ContentType Type { get; set; }
+
         public string Content { get; set; }
+
+        public string ContentInHtml()
+        {
+            if (Type == ContentType.Markdown)
+            {
+                var md = new MarkdownSharp.Markdown();
+                return md.Transform(Content);
+            }
+
+            return Content;
+        }
+
+        public enum ContentType
+        {
+            Html,
+            Markdown
+        }
     }
 }

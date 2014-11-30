@@ -5,18 +5,18 @@ using Microsoft.Build.Evaluation;
 
 namespace Doc.Net.Framework.Harvest
 {
-    public class MarkdownHarvester : IHarvester
+    public class HtmlHarvester : IHarvester
     {
         public IEnumerable<Page> Process(Project project)
         {
-            var markdowns = project.Items.Where(o => o.ItemType == "DocNet" && o.EvaluatedInclude.EndsWith(".md"));
+            var files = project.Items.Where(o => o.ItemType == "DocNet" && o.EvaluatedInclude.EndsWith(".html"));
 
-            foreach (var file in markdowns)
+            foreach (var file in files)
             {
                 yield return new Page()
                 {
                     Id = file.EvaluatedInclude,
-                    Type = Page.ContentType.Markdown,
+                    Type = Page.ContentType.Html,
                     Content = File.ReadAllText(Path.Combine(project.DirectoryPath, file.EvaluatedInclude))
                 };
             }
