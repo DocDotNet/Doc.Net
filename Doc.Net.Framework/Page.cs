@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Doc.Net.Framework.Write
+namespace Doc.Net.Framework
 {
-    public interface IWriter
+    public class Page
     {
-        bool Process(DocNetContainer container, string targetDir);
+        public string Id { get; set; }
+
+        public string Content { get; set; }
     }
 }

@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Doc.Net.Framework.Write
 {
-    public class TextWriter : IWriter
+    public class TextWriter
     {
+        public bool Process(DocNetContainer container)
+        {
+            return false;
+        }
     }
 }

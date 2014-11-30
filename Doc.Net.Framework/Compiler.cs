@@ -19,21 +19,32 @@ namespace Doc.Net.Framework
             harvesters.Add(new MarkdownHarvester());
 
             // Register all writers.
-            writers.Add(new TextWriter());
+            //writers.Add(new TextWriter());
             writers.Add(new WebWriter());
-            writers.Add(new ChmWriter());
+            //writers.Add(new ChmWriter());
 
             // ToDo: Pull from MEF or some plugin framework.
         }
 
         public void Compile(string projectLocation)
         {
-            LoadProject(projectLocation);
+            var container = new DocNetContainer();
+            var project = new Project(projectLocation);
+            LoadProject(project);
+
+            foreach (var harvester in harvesters)
+            {
+                container.Pages.AddRange(harvester.Process(project));
+            }
+
+            foreach (var writer in writers)
+            {
+                writer.Process(container, project.DirectoryPath);
+            }
         }
 
-        private void LoadProject(string projectLocation)
+        private void LoadProject(Project project)
         {
-            var project = new Project(projectLocation);
             _config = new DocConfiguration(project);
         }
     }
