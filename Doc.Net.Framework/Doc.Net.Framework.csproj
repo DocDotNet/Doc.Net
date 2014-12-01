@@ -49,11 +49,16 @@
   <ItemGroup>
     <Compile Include="Compiler.cs" />
     <Compile Include="Configuration\DocConfiguration.cs" />
-    <Compile Include="DocNetContainer.cs" />
+    <Compile Include="Content\Code\CodeContent.cs" />
+    <Compile Include="Content\MarkdownContent.cs" />
+    <Compile Include="Content\HtmlContent.cs" />
+    <Compile Include="Content\IContent.cs" />
+    <Compile Include="Content\DocNetContainer.cs" />
+    <Compile Include="Harvest\ReflectionHarvester.cs" />
     <Compile Include="Harvest\IHarvester.cs" />
     <Compile Include="Harvest\HtmlHarvester.cs" />
     <Compile Include="Harvest\MarkdownHarvester.cs" />
-    <Compile Include="Page.cs" />
+    <Compile Include="Content\Page.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Write\IWriter.cs" />
     <Compile Include="Write\ChmWriter.cs" />

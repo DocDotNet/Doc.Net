@@ -2,7 +2,7 @@
 
 namespace HtmlWriter
 {
-    public class Writer : IWriter
+    public class Writer
     {
     }
 }

@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using Doc.Net.Framework.Content;
 
 namespace Doc.Net.Framework.Write
 {

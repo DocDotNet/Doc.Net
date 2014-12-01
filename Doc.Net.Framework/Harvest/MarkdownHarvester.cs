@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Doc.Net.Framework.Content;
 using Microsoft.Build.Evaluation;
 
 namespace Doc.Net.Framework.Harvest
@@ -16,8 +17,7 @@ namespace Doc.Net.Framework.Harvest
                 yield return new Page()
                 {
                     Id = file.EvaluatedInclude,
-                    Type = Page.ContentType.Markdown,
-                    Content = File.ReadAllText(Path.Combine(project.DirectoryPath, file.EvaluatedInclude))
+                    Content = new MarkdownContent(File.ReadAllText(Path.Combine(project.DirectoryPath, file.EvaluatedInclude)))
                 };
             }
         }

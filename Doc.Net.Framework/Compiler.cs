@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Doc.Net.Framework.Configuration;
+using Doc.Net.Framework.Content;
 using Doc.Net.Framework.Harvest;
 using Doc.Net.Framework.Write;
 using Microsoft.Build.Evaluation;
@@ -21,6 +22,7 @@ namespace Doc.Net.Framework
             // Register all harvesters
             harvesters.Add(new MarkdownHarvester());
             harvesters.Add(new HtmlHarvester());
+            harvesters.Add(new ReflectionHarvester());
 
             // Register all writers.
             //writers.Add(new TextWriter());
@@ -60,7 +62,19 @@ namespace Doc.Net.Framework
 
             // Try get path from config
             var userPath = _config.Get("OutputPath");
-            outputPath = Path.Combine(outputPath, userPath ?? "help");
+            var docPathProperty = project.AllEvaluatedProperties.FirstOrDefault(o => o.Name.Equals("DocOutputPath", StringComparison.InvariantCulture));
+            if (userPath != null)
+            {
+                outputPath = Path.Combine(outputPath, userPath);
+            }
+            else if (docPathProperty != null)
+            {
+                outputPath = Path.Combine(outputPath, docPathProperty.EvaluatedValue);
+            }
+            else
+            {
+                outputPath = Path.Combine(outputPath, "Doc");
+            }
             
             // Ensure path exists
             if (!Directory.Exists(outputPath))
