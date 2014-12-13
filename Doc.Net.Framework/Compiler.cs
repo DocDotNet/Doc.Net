@@ -22,7 +22,8 @@ namespace Doc.Net.Framework
             // Register all harvesters
             harvesters.Add(new MarkdownHarvester());
             harvesters.Add(new HtmlHarvester());
-            harvesters.Add(new ReflectionHarvester());
+            //harvesters.Add(new ReflectionHarvester());
+            harvesters.Add(new RoslynHarvester());
 
             // Register all writers.
             //writers.Add(new TextWriter());
