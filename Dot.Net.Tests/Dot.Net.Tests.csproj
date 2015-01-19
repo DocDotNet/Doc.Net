@@ -35,12 +35,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Build" />
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.3.0.0-alpha-2\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.XML" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -61,6 +64,10 @@
     <ProjectReference Include="..\Doc.Net.Framework\Doc.Net.Framework.csproj">
       <Project>{0a542441-6d89-4fbf-9e9a-dc04afd42593}</Project>
       <Name>Doc.Net.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Doc.Net.Lyn\Doc.Net.Lyn.csproj">
+      <Project>{8016f8c6-bf74-44a9-8e65-2421527d2621}</Project>
+      <Name>Doc.Net.Lyn</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

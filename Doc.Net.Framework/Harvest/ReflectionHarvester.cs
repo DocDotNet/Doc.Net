@@ -31,12 +31,30 @@ namespace Doc.Net.Framework.Harvest
             {
                 var assembly = Assembly.LoadFile(assemblyFile);
 
-                yield return new Page()
+                var parentPage = new Page()
                 {
                     Id = assembly.FullName,
-                    Content = new HtmlContent(assembly.FullName)
+                    Content = new HtmlContent(assembly.FullName),
                 };
+
+                var children = new List<Page>();
+                foreach (var type in assembly.ExportedTypes)
+                {
+                    children.Add(ParseType(type));
+                }
+                parentPage.Children = children;
+
+                yield return parentPage;
             }
+        }
+
+        private Page ParseType(Type type)
+        {
+            return new Page()
+            {
+                Id = type.FullName,
+                Content = new HtmlContent(type.FullName)
+            };
         }
     }
 }

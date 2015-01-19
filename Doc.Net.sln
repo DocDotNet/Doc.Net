@@ -1,13 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.22310.1
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doc.Net.Framework", "Doc.Net.Framework\Doc.Net.Framework.csproj", "{0A542441-6D89-4FBF-9E9A-DC04AFD42593}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HtmlWriter", "HtmlWriter\HtmlWriter.csproj", "{A6D65479-A10C-4A05-8D39-0F1936D727AB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarkdownHarvester", "MarkdownHarvester\MarkdownHarvester.csproj", "{EC9AB5EF-3C31-4FC6-AD51-F5DC97F5E80A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dot.Net.Tests", "Dot.Net.Tests\Dot.Net.Tests.csproj", "{70087F1D-4703-4346-A80C-A3CF350F18C5}"
 EndProject
@@ -29,14 +25,6 @@ Global
 		{0A542441-6D89-4FBF-9E9A-DC04AFD42593}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A542441-6D89-4FBF-9E9A-DC04AFD42593}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A542441-6D89-4FBF-9E9A-DC04AFD42593}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A6D65479-A10C-4A05-8D39-0F1936D727AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A6D65479-A10C-4A05-8D39-0F1936D727AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A6D65479-A10C-4A05-8D39-0F1936D727AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A6D65479-A10C-4A05-8D39-0F1936D727AB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EC9AB5EF-3C31-4FC6-AD51-F5DC97F5E80A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EC9AB5EF-3C31-4FC6-AD51-F5DC97F5E80A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EC9AB5EF-3C31-4FC6-AD51-F5DC97F5E80A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EC9AB5EF-3C31-4FC6-AD51-F5DC97F5E80A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{70087F1D-4703-4346-A80C-A3CF350F18C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{70087F1D-4703-4346-A80C-A3CF350F18C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70087F1D-4703-4346-A80C-A3CF350F18C5}.Release|Any CPU.ActiveCfg = Release|Any CPU

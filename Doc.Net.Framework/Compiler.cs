@@ -22,8 +22,8 @@ namespace Doc.Net.Framework
             // Register all harvesters
             harvesters.Add(new MarkdownHarvester());
             harvesters.Add(new HtmlHarvester());
-            //harvesters.Add(new ReflectionHarvester());
-            harvesters.Add(new RoslynHarvester());
+            harvesters.Add(new ReflectionHarvester());
+            //harvesters.Add(new RoslynHarvester());
 
             // Register all writers.
             //writers.Add(new TextWriter());
@@ -33,10 +33,20 @@ namespace Doc.Net.Framework
             // ToDo: Pull from MEF or some plugin framework.
         }
 
+        public static void CompileProject(string project)
+        {
+            new Compiler().Compile(project);
+        }
+
         public void Compile(string projectLocation)
         {
             var container = new DocNetContainer();
-            var project = new Project(projectLocation);
+            var project = Microsoft.Build.Evaluation.ProjectCollection.GlobalProjectCollection.GetLoadedProjects(projectLocation).FirstOrDefault();
+            if (project == null)
+            {
+                project = new Project(projectLocation);
+            }
+
             LoadProject(project);
 
             foreach (var harvester in harvesters)

@@ -40,11 +40,24 @@ namespace Doc.Net.Framework.Write
             var id = 0;
             foreach (var page in container.Pages)
             {
-                menu.AppendLine("<li><a href='" + id + ".html'>" + page.Id + "</a></li>");
-                id++;
+                ParsePage(menu, page, ref id);
             }
 
             return menu.ToString();
+        }
+
+        private void ParsePage(StringBuilder sb, Page page, ref int id)
+        {
+            sb.AppendLine("<li><a href='" + id + ".html'>" + page.Id + "</a></li>");
+            id++;
+
+            if (page.Children != null)
+            {
+                foreach (var childPage in page.Children)
+                {
+                    ParsePage(sb, childPage, ref id);
+                }
+            }
         }
 
         private void WriteFile(string fileName, string content)

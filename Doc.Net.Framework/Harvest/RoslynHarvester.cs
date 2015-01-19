@@ -4,8 +4,9 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using Doc.Net.Framework.Content;
-using Microsoft.Build.Evaluation;
+using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.MSBuild;
+using Project = Microsoft.Build.Evaluation.Project;
 
 namespace Doc.Net.Framework.Harvest
 {
@@ -16,6 +17,8 @@ namespace Doc.Net.Framework.Harvest
     {
         public IEnumerable<Page> Process(Project project)
         {
+            var proj = GetProject(project.FullPath);
+
             ////var test = 
 
             ////var docFile = string.Empty;
@@ -46,12 +49,12 @@ namespace Doc.Net.Framework.Harvest
             return Enumerable.Empty<Page>();
         }
 
-        //private Microsoft.CodeAnalysis.Project GetProject(string project)
-        //{
-        //    var workspace = MSBuildWorkspace.Create();
-        //    var openProjectTask = workspace.OpenProjectAsync(project);
-        //    var proj = await openProjectTask;
-        //    return proj;
-        //}
+        private Microsoft.CodeAnalysis.Project GetProject(string project)
+        {
+            var workspace = MSBuildWorkspace.Create();
+            var openProjectTask = workspace.OpenProjectAsync(project);
+            openProjectTask.Wait();
+            return openProjectTask.Result;
+        }
     }
 }

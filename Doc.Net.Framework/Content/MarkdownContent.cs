@@ -13,7 +13,7 @@ namespace Doc.Net.Framework.Content
     public class MarkdownContent : IContent
     {
         private string markdown;
-        private static MarkdownSharp.Markdown converter = new Markdown(new MarkdownOptions() { });
+        private static Markdown converter = new Markdown(new MarkdownOptions() { });
 
         public MarkdownContent(string markdown)
         {
