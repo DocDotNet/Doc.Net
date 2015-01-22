@@ -25,11 +25,11 @@ Copyright (C) Doc.Net Group. All rights reserved.
   <Target Name="IsolateLoadingDocNetDll" AfterTargets="Build">
     <!-- Doesnt work because it doesnt fire up a new msbuild.exe
     <MsBuild Projects="$(MSBuildThisFileFullPath)" Targets="CompileSelfDoc"/> -->
-    <Exec Command="&quot;$(MSBuildBinPath)\msbuild.exe&quot; &quot;$(MSBuildThisFileFullPath)&quot; /t:CompileSelfDoc /p:DocProj=&quot;$(MSBuildProjectFullPath)&quot;;Dll=&quot;$(TargetPath)&quot;" />
+    <Exec Command="&quot;$(MSBuildBinPath)\msbuild.exe&quot; &quot;$(MSBuildThisFileFullPath)&quot; /t:CompileSelfDoc /p:DocProj=&quot;$(MSBuildProjectFullPath)&quot;;Dll=&quot;$(TargetPath)&quot;;TargetDir=$(TargetDir)" />
   </Target>
 
   <Target Name="CompileSelfDoc">
-    <SelfCompile Project="$(DocProj)" Dll="$(Dll)" />
+    <SelfCompile Project="$(DocProj)" Dll="$(Dll)" OutDir="$(TargetDir)" />
   </Target>
 
   <!-- Task to use reflection to perform the compile. -->
@@ -37,6 +37,7 @@ Copyright (C) Doc.Net Group. All rights reserved.
     <ParameterGroup>
       <Dll ParameterType="System.String" Required="true" />
       <Project ParameterType="System.String" Required="true" />
+      <OutDir ParameterType="System.String" Required="true" />
     </ParameterGroup>
     <Task>
       <Using Namespace="System.IO" />
@@ -44,7 +45,7 @@ Copyright (C) Doc.Net Group. All rights reserved.
         <![CDATA[
 		      Log.LogMessage(Microsoft.Build.Framework.MessageImportance.High, System.String.Format("Compiling project {0}.", Project));
           var assembly = System.Reflection.Assembly.LoadFrom(Dll);
-          assembly.GetType("Doc.Net.Framework.Compiler").GetMethod("CompileProject").Invoke(null, new object[] { Project });
+          assembly.GetType("Doc.Net.Framework.Compiler").GetMethod("CompileProject").Invoke(null, new object[] { Project, OutDir });
         ]]>
       </Code>
     </Task>

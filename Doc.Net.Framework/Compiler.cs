@@ -33,12 +33,12 @@ namespace Doc.Net.Framework
             // ToDo: Pull from MEF or some plugin framework.
         }
 
-        public static void CompileProject(string project)
+        public static void CompileProject(string project, string outDir = null)
         {
-            new Compiler().Compile(project);
+            new Compiler().Compile(project, outDir);
         }
 
-        public void Compile(string projectLocation)
+        public void Compile(string projectLocation, string outDir = null)
         {
             var container = new DocNetContainer();
             var project = Microsoft.Build.Evaluation.ProjectCollection.GlobalProjectCollection.GetLoadedProjects(projectLocation).FirstOrDefault();
@@ -47,7 +47,7 @@ namespace Doc.Net.Framework
                 project = new Project(projectLocation);
             }
 
-            LoadProject(project);
+            LoadProject(project, outDir);
 
             foreach (var harvester in harvesters)
             {
@@ -60,13 +60,13 @@ namespace Doc.Net.Framework
             }
         }
 
-        private void LoadProject(Project project)
+        private void LoadProject(Project project, string outDir = null)
         {
             _config = new DocConfiguration(project);
 
-            outputPath = project.DirectoryPath;
+            outputPath = outDir ?? project.DirectoryPath;
             var pathProperty = project.AllEvaluatedProperties.FirstOrDefault(o => o.Name.Equals("OutputPath", StringComparison.InvariantCulture));
-            if (pathProperty != null)
+            if (outDir == null && pathProperty != null)
             {
                 outputPath = Path.Combine(project.DirectoryPath, pathProperty.EvaluatedValue);
             }
