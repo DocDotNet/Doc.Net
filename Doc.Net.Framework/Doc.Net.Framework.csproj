@@ -136,13 +136,22 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resource\template.html" />
+    <EmbeddedResource Include="Resource\SimpleTheme\template.html" />
   </ItemGroup>
   <ItemGroup>
     <DocNet Include="License.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Harvest\Rosyln\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resource\SimpleTheme\style.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Resource\SimpleTheme\script.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resource\SimpleTheme\script.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildThisFileDirectory)project.targets" />

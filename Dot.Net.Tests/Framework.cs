@@ -57,7 +57,7 @@ namespace Dot.Net.Tests
 
             // Last method which worked uses reflection to load the dll, but is done from a new msbuild.exe call which causes it to release the dll.
             var assembly = Assembly.LoadFrom(Dll);
-            assembly.GetType("Doc.Net.Framework.Compiler").GetMethod("CompileProject").Invoke(null, new object[] { Project });
+            assembly.GetType("Doc.Net.Framework.Compiler").GetMethod("CompileProject").Invoke(null, new object[] { Project, @"C:\Dev\Doc.Net\Doc.Net.Framework\bin\Release" });
 
             // Attempt 2 made a copy of the dll then loaded it, but failed because dependencies were not loaded.
             ////var tmpFilename = Path.Combine(new FileInfo(Dll).Directory.FullName, @"Doc.Net.Framework" + Guid.NewGuid().ToString().Replace("-", "") + ".dll");
