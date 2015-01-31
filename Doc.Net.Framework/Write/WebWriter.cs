@@ -62,7 +62,7 @@ namespace Doc.Net.Framework.Write
 
         private void WriteFile(string fileName, string content)
         {
-            var templatedContent = ParseResource("template.html").Replace("{Menu}", MakeMenu()).Replace("{Content}", content);
+            var templatedContent = ParseResource("SimpleTheme.template.html").Replace("{Menu}", MakeMenu()).Replace("{Content}", content);
             File.WriteAllText(Path.Combine(this.targetDir, fileName + ".html"), templatedContent);
         }
 

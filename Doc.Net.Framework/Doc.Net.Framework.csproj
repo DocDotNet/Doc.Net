@@ -118,6 +118,7 @@
     <Compile Include="Write\TextWriter.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Build\default.json" />
     <None Include="Build\Doc.Net.targets">
       <SubType>Designer</SubType>
     </None>
