@@ -12,8 +12,7 @@ namespace Doc.Net.Lyn
 {
     public class ProjectParser
     {
-        private ProjectParser(Project project)
-        {
-        }
+        private readonly Project project;
+
     }
 }

@@ -5,6 +5,8 @@ using Doc.Net.Framework;
 using Doc.Net.Lyn;
 using Microsoft.Build.Evaluation;
 using NUnit.Framework;
+using Microsoft.CodeAnalysis;
+using Project = Microsoft.Build.Evaluation.Project;
 
 namespace Dot.Net.Tests
 {
@@ -35,6 +37,24 @@ namespace Dot.Net.Tests
 
             var task = SolutionParser.OpenSolutionAsync(frameworkSolution);
             task.Wait();
+
+            var compileTask = task.Result.Compile();
+            compileTask.Wait();
+
+            var compilations = compileTask.Result;
+
+            foreach (var compilation in compilations)
+            {
+                foreach (var syntaxTree in compilation.SyntaxTrees)
+                {
+                    var root = syntaxTree.GetRoot();
+                    var model = compilation.GetSemanticModel(syntaxTree);
+                    var symbol = model.GetSymbolInfo(root);
+                    var test = compilation.Assembly.GlobalNamespace.GetNamespaceMembers();
+                    var members = compilation.Assembly.GlobalNamespace.GetTypeMembers();
+                }
+            }
+
             Assert.IsNotNull(task.Result);
         }
 
@@ -45,6 +65,8 @@ namespace Dot.Net.Tests
             comp.Compile(exampleProject);
         }
 
+        /// <summary>
+        /// </summary>
         [Test]
         public void CompileUsingCustomTask()
         {
